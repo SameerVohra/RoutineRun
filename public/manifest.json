@@ -1,0 +1,14 @@
+{
+  "name": "RoutineRun",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "Effortlessly launch your favorite websites with a single click, organizing your browsing experience based on customizable routines.",
+  "permissions": ["tabs", "scripting"],
+  "action": {
+    "default_popup": "index.html"
+  },
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ]
+}

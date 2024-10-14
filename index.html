@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Routine Launcher</title>
+    <link rel="icon" href="/vite.svg" type="image/svg+xml" />
+    <style>
+      /* Basic styles to ensure proper rendering */
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f9fafb; /* Tailwind gray-100 */
+        width: 320px; /* Fixed width for Chrome extension popup */
+        height: auto; /* Adjusts based on content */
+      }
+      #root {
+        min-height: 100vh; /* Ensures the root div takes up full height */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
