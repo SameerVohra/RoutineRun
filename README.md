@@ -1,4 +1,4 @@
-# RoutineRun Chrome####  Extension
+# RoutineRun Chrome Extension
 
 **RoutineRun** is a productivity-boosting Chrome extension that helps you quickly launch a set of websites as part of your daily routine. Whether you're starting your coding session, research, or any task, you can open all your essential websites with just one click!
 
