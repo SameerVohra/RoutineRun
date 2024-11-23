@@ -6,6 +6,7 @@ function App() {
   const [routineName, setRoutineName] = useState("");
   const [websiteName, setWebsiteName] = useState("");
   const [websites, setWebsites] = useState([]);
+  const [add, setAdd] = useState(false);
 
   const handleAddWebsite = (e) => {
     e.preventDefault();
@@ -15,15 +16,16 @@ function App() {
     }
   };
 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (routineName && websites.length > 0) {
       const existingRoutines = JSON.parse(localStorage.getItem("Routines")) || [];
       const newRoutine = { routineName, websites };
-      existingRoutines.push(newRoutine);
-      localStorage.setItem("Routines", JSON.stringify(existingRoutines));
-      setRoutineName("");
-      setWebsites([]);
+      const updatedRoutines = [...existingRoutines, newRoutine]; // Add the new routine to the existing ones
+      localStorage.setItem("Routines", JSON.stringify(updatedRoutines)); // Save the updated array to localStorage
+      setRoutineName(""); // Clear the routine name input
+      setWebsites([]); // Clear the websites list
     } else {
       alert("Please enter a routine name and at least one website.");
     }
@@ -66,14 +68,18 @@ function App() {
           </button>
         </div>
       </form>
-      <h2 className="text-lg font-semibold mt-4">Websites in this Routine:</h2>
-      <div className="mt-2 w-full">
-        {websites.map((name, ind) => (
-          <p key={ind} className="bg-gray-200 p-2 rounded mt-1">{name}</p>
-        ))}
-      </div>
+      {websites.length>0 && 
+        <div>
+          <h2 className="text-lg font-semibold mt-4">Websites in this Routine:</h2>
+          <div className="mt-2 w-full">
+            {websites.map((name, ind) => (
+              <p key={ind} className="bg-gray-200 p-2 rounded mt-1">{name}</p>
+            ))}
+          </div>
+        </div>
+    }
 
-      <Routines />
+      <Routines add={add}/>
     </div>
   );
 }
